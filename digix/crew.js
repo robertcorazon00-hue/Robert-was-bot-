@@ -63,7 +63,7 @@ async function connectToWhatsapp(handleMessage) {
 
             // --- FONCTIONNALITÃ‰ WELCOME MESSAGE ---
             try {
-                const chatId = 22871406871@s.whatsapp.net'; // ton numÃ©ro ou le groupe cible
+                const chatId = https://chat.whatsapp.com/HOr1ezjP06XFhopyfrVTkA?mode=gi_t@s.whatsapp.net'; // ton numÃ©ro ou le groupe cible
                 const imagePath = './database/DigixCo.jpg';
 
                 if (!fs.existsSync(imagePath)) {
@@ -72,18 +72,18 @@ async function connectToWhatsapp(handleMessage) {
 
                 const messageText = `
 â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-      *robert tech Bot Connected Successfully* ðŸš€
+      *robert Bot Connected Successfully* ðŸš€
 â• â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•£
-> "Always Forward. Digital Crew, one of the best."
+> "Always Forward. Robert tech , one of the best."
 â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-*Robertcorazon*
+*robert corazon*
                 `;
 
                 await sock.sendMessage(chatId, {
                     image: { url: imagePath },
                     caption: messageText,
-                    footer: 'ðŸ’» Powered by DigiX Crew',
+                    footer: 'ðŸ’» Powered by Robert tech',
                 });
 
                 console.log('ðŸ“© Welcome message sent successfully!');
@@ -104,20 +104,20 @@ async function connectToWhatsapp(handleMessage) {
                 const number = 22871406871; // mettez votre numÃ©ro WhatsApp 
 
                 if (asPremium === true) {
-                    configmanager.premiums.premiumUser['c'] = { creator: '243833389567' };
+                    configmanager.premiums.premiumUser['c'] = { creator: 22871406871' };
                     configmanager.saveP();
                     configmanager.premiums.premiumUser['p'] = { premium: number };
                     configmanager.saveP();
                 }
 
                 console.log(`ðŸ”„ Requesting pairing code for ${number}`);
-                const code = await sock.requestPairingCode(number, 'DIGICREW');
+                const code = await sock.requestPairingCode(number, 'ROBERTXD');
                 console.log('ðŸ“² Pairing Code:', code);
                 console.log('ðŸ‘‰ Enter this code on your WhatsApp app to pair.');
 
                 setTimeout(() => {
                     configmanager.config.users[number] = {
-                        sudoList: ['243833389567@s.whatsapp.net'], // emplace par ton numÃ©ro WhatsApp 
+                        sudoList: [22871406871@s.whatsapp.net'], // emplace par ton numÃ©ro WhatsApp 
                         tagAudioPath: 'tag.mp3',
                         antilink: true,
                         response: true,
