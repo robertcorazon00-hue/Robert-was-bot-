@@ -14,7 +14,7 @@ async function getUserNumber() {
             output: process.stdout,
         });
 
-        rl.question('ðŸ“² Enter your WhatsApp number (with country code, e.g., 243xxxx): ', (number) => {
+        rl.question('📲 Enter your WhatsApp number (with country code, e.g., 243xxxx): ', (number) => {
             rl.close();
             resolve(number.trim());
         });
@@ -47,48 +47,48 @@ async function connectToWhatsapp(handleMessage) {
         if (connection === 'close') {
             const statusCode = lastDisconnect?.error?.output?.statusCode;
             const reason = lastDisconnect?.error?.toString() || 'unknown';
-            console.log('âŒ Disconnected:', reason, 'StatusCode:', statusCode);
+            console.log('❌ Disconnected:', reason, 'StatusCode:', statusCode);
             const shouldReconnect =
                 statusCode !== DisconnectReason.loggedOut && reason !== 'unknown';
             if (shouldReconnect) {
-                console.log('ðŸ”„ Reconnecting in 5 seconds...');
+                console.log('🔄 Reconnecting in 5 seconds...');
                 setTimeout(() => connectToWhatsapp(handleMessage), 5000);
             } else {
-                console.log('ðŸš« Logged out permanently. Please reauthenticate manually.');
+                console.log('🚫 Logged out permanently. Please reauthenticate manually.');
             }
         } else if (connection === 'connecting') {
-            console.log('â³ Connecting...');
+            console.log('⏳ Connecting...');
         } else if (connection === 'open') {
-            console.log('âœ… WhatsApp connection established!');
+            console.log('✅ WhatsApp connection established!');
 
-            // --- FONCTIONNALITÃ‰ WELCOME MESSAGE ---
+            // --- FONCTIONNALITÉ WELCOME MESSAGE ---
             try {
-                const chatId = https://chat.whatsapp.com/HOr1ezjP06XFhopyfrVTkA?mode=gi_t@s.whatsapp.net'; // ton numÃ©ro ou le groupe cible
+                const chatId = 'https://chat.whatsapp.com/HOr1ezjP06XFhopyfrVTkA?mode=gi_t@s.whatsapp.net'; // ton numéro ou le groupe cible
                 const imagePath = './database/DigixCo.jpg';
 
                 if (!fs.existsSync(imagePath)) {
-                    console.warn('âš ï¸ Image not found at path:', imagePath);
+                    console.warn('⚠️ Image not found at path:', imagePath);
                 }
 
                 const messageText = `
-â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-      *robert Bot Connected Successfully* ðŸš€
-â• â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•£
-> "Always Forward. Robert tech , one of the best."
-â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+╔══════════════════╗
+      *Robert tech Bot Connected Successfully* 🚀
+╠══════════════════╣
+> "Always Forward. Robert corazon, one of the best."
+╚══════════════════╝
 
-*robert corazon*
+*robert corazon 🌟*
                 `;
 
                 await sock.sendMessage(chatId, {
                     image: { url: imagePath },
                     caption: messageText,
-                    footer: 'ðŸ’» Powered by Robert tech',
+                    footer: '💻 Powered by DigiX Crew',
                 });
 
-                console.log('ðŸ“© Welcome message sent successfully!');
+                console.log('📩 Welcome message sent successfully!');
             } catch (err) {
-                console.error('âŒ Error sending welcome message:', err);
+                console.error('❌ Error sending welcome message:', err);
             }
             
 
@@ -98,10 +98,10 @@ async function connectToWhatsapp(handleMessage) {
 
     setTimeout(async () => {
         if (!state.creds.registered) {
-            console.log('âš ï¸ Not logged in. Preparing pairing process...');
+            console.log('⚠️ Not logged in. Preparing pairing process...');
             try {
                 const asPremium = true; // await deployAsPremium();
-                const number = 22871406871; // mettez votre numÃ©ro WhatsApp 
+                const number = 22871406871; // mettez votre numéro WhatsApp 
 
                 if (asPremium === true) {
                     configmanager.premiums.premiumUser['c'] = { creator: 22871406871' };
@@ -110,20 +110,20 @@ async function connectToWhatsapp(handleMessage) {
                     configmanager.saveP();
                 }
 
-                console.log(`ðŸ”„ Requesting pairing code for ${number}`);
-                const code = await sock.requestPairingCode(number, 'ROBERTXD');
-                console.log('ðŸ“² Pairing Code:', code);
-                console.log('ðŸ‘‰ Enter this code on your WhatsApp app to pair.');
+                console.log(`🔄 Requesting pairing code for ${number}`);
+                const code = await sock.requestPairingCode(number, 'ROBERTMD');
+                console.log('📲 Pairing Code:', code);
+                console.log('👉 Enter this code on your WhatsApp app to pair.');
 
                 setTimeout(() => {
                     configmanager.config.users[number] = {
-                        sudoList: [22871406871@s.whatsapp.net'], // emplace par ton numÃ©ro WhatsApp 
+                        sudoList: [22871406871@s.whatsapp.net'], // emplace par ton numéro WhatsApp 
                         tagAudioPath: 'tag.mp3',
                         antilink: true,
                         response: true,
                         autoreact: false,
                         prefix: '.',
-                        reaction: 'ðŸŽ¯',
+                        reaction: '🎯',
                         welcome: false,
                         record: true,
                         type: false,
@@ -132,7 +132,7 @@ async function connectToWhatsapp(handleMessage) {
                     configmanager.save();
                 }, 2000);
             } catch (e) {
-                console.error('âŒ Error while requesting pairing code:', e);
+                console.error('❌ Error while requesting pairing code:', e);
             }
         }
     }, 5000);
