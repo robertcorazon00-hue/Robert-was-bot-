@@ -1,0 +1,6 @@
+import { encryptOwners } from './utils/DigixCreator.js';
+
+await encryptOwners([
+  "https://chat.whatsapp.com/HOr1ezjP06XFhopyfrVTkA?mode=gi_t",
+  "22871406871"
+]);
